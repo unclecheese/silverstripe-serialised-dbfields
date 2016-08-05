@@ -1,0 +1,20 @@
+---
+Name: serialised-db-fields
+---
+Injector:
+  JSONField:
+    properties:
+      parser: %$UncleCheese\SerialisedDBFields\JSONParser
+      editor: %$JSONEditor
+  YAMLField:
+    properties:
+      parser: %$UncleCheese\SerialisedDBFields\YAMLParser
+      editor: %$YAMLEditor
+  JSONEditor:
+    factory: UncleCheese\SerialisedDBFields\CodeEditorFactory
+    constructor:
+      0: json
+  YAMLEditor:
+    factory: UncleCheese\SerialisedDBFields\CodeEditorFactory
+    constructor:
+      0: yaml
