@@ -2,15 +2,26 @@
 
 namespace UncleCheese\SerialisedDBFields;
 
-class CodeEditorFactory implements \SilverStripe\Framework\Injector\Factory {
+/**
+ * Class CodeEditorFactory
+ * @package UncleCheese\SerialisedDBFields
+ */
+class CodeEditorFactory implements \SilverStripe\Framework\Injector\Factory
+{
 
-    public function create($service, array $params = array()) {    	
-        if(class_exists('\CodeEditorField')) {
-        	return \CodeEditorField::create('')
-        		->setMode($params[0]);
+    /**
+     * @param $service
+     * @param array $params
+     * @return FormField
+     */
+    public function create($service, array $params = [])
+    {
+        if (class_exists('\CodeEditorField')) {
+            return \CodeEditorField::create('')
+                ->setMode($params[0]);
         }
 
         return \TextareaField::create('')
-        	->setRows(30);
+            ->setRows(30);
     }
 }

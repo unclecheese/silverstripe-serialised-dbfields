@@ -2,7 +2,16 @@
 
 namespace UncleCheese\SerialisedDBFields;
 
-interface SerialisedDBFieldParser 
+/**
+ * Interface SerialisedDBFieldParser
+ * Defines a tool that can be used to parse text into an array
+ * @package UncleCheese\SerialisedDBFields
+ */
+interface SerialisedDBFieldParser
 {
-	public function parse($data);
+    /**
+     * @param $data
+     * @return array
+     */
+    public function parse($data);
 }
