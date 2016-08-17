@@ -38,6 +38,18 @@ class SerialisedDBFieldTest extends SapphireTest
         $this->assertEquals('One', $field->obj('List')->first()->obj('Title')->getValue());
     }
 
+    public function testCastingHints()
+    {
+        $field = TestSerialisedDBField::create('test');
+        $field->setParser(new SerialisedDBFieldTest_Parser());
+
+        $this->assertInstanceOf('Currency', $field->obj('Price'));
+        $this->assertEquals(20, $field->obj('Price')->getValue());
+
+        $this->assertInstanceOf('Date', $field->obj('StartDate'));
+        $this->assertEquals('2015-01-01', $field->obj('StartDate')->getValue());
+    }
+
 }
 
 
@@ -51,7 +63,9 @@ class SerialisedDBFieldTest_Parser implements UncleCheese\SerialisedDBFields\Ser
             'List' => [
                 ['Title' => 'One', 'Link' => '/one'],
                 ['Title' => 'Two', 'Link' => '/two']
-            ]
+            ],
+            'Price' => 'Currency|20',
+            'StartDate' => 'Date | 2015-01-01'
         ];
     }
 }

@@ -74,7 +74,12 @@ class MyPageType extends Page {
 
 ## Casting
 
-When you reach a scalar value in your data strucutre, the value is universally cast as `Text`. This is obviously a huge handicap for storing other data types like Date, Currency, etc. A future release will provide options for casting hints in your data structure.
+By default, all scalar values fall back on the `$default_cast` setting of `ViewableData` (Text). To customise the casting, use the `|` symbol in your field value.
+
+```yaml
+Price: Currency|20.00
+StartDate: Date|2016-01-01
+```
 
 ## Tests
 

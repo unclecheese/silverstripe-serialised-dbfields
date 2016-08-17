@@ -99,7 +99,9 @@ abstract class SerialisedDBField extends Text
             return $newField;
         }
 
-        return DBField::create_field('Text', $data);
+        $this->$fieldName = $this->getCastingHint($data);
+
+        return parent::obj($fieldName, $arguments, $forceReturnedObject, $cache, $cacheName);
     }
 
 
@@ -160,6 +162,30 @@ abstract class SerialisedDBField extends Text
         }
 
         return $data[$field];
+    }
+
+
+    /**
+     * Parses the field value for a casting hint, e.g.
+     * <code>
+     * Price: Currency|20.00
+     * </code>
+     * @param  string $fieldValue
+     * @return DBField|string
+     */
+    protected function getCastingHint($fieldValue)
+    {
+    	$pos = strpos($fieldValue, '|');
+
+    	if($pos !== false) {
+	    	$hint = trim(substr($fieldValue, 0, $pos));
+	    	if(is_subclass_of($hint, 'DBField')) {
+	    		$value = substr($fieldValue, $pos+1);	    		
+				return DBField::create_field($hint, $value);
+			}
+		}
+
+		return $fieldValue;
     }
 
 
