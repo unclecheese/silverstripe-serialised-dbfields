@@ -3,7 +3,7 @@
 Provides serialised data (YAML, JSON) in text fields that are traverseable as nested ViewableData objects.
 
 ## Installation
-`composer require uncelcheese/silverstripe-serialised-db-fields`
+`composer require unclecheese/silverstripe-serialised-dbfields`
 
 ## Recommended add-ons
 
