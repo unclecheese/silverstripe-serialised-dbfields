@@ -176,16 +176,18 @@ abstract class SerialisedDBField extends Text
     protected function getCastingHint($fieldValue)
     {
     	$pos = strpos($fieldValue, '|');
-
+    	$dbField = null;
     	if($pos !== false) {
 	    	$hint = trim(substr($fieldValue, 0, $pos));
-	    	if(is_subclass_of($hint, 'DBField')) {
-	    		$value = substr($fieldValue, $pos+1);	    		
-				return DBField::create_field($hint, $value);
+	    	$value = substr($fieldValue, $pos+1);
+	    	if(is_subclass_of($hint, 'DBField')) {	    			    		
+				$dbField = DBField::create_field($hint, $value);
 			}
+
+			$this->extend('updateCastingHint', $dbField, $hint, $value);
 		}
 
-		return $fieldValue;
+		return $dbField ?: $fieldValue;
     }
 
 
