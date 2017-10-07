@@ -12,7 +12,8 @@
 		"issues": "https://github.com/unclecheese/silverstripe-serialised-dbfields/issues"
 	},
 	"require": {
-		"silverstripe/framework": "~3.1"
+		"silverstripe/framework": "~3.1",
+		"symfony/yaml": "^3"
 	},
     "suggest": {
         "nathancox/codeeditorfield": "Provides a robust code editor for editing your serialised data in the CMS"
