@@ -147,6 +147,15 @@ abstract class SerialisedDBField extends Text
 
         return $this->unserialisedData = $this->parser->parse($this->getValue());
     }
+    
+	
+    /**
+     * @return bool
+     */
+    public function scalarValueOnly()
+    {
+        return false;
+    }	
 
 
     /**
