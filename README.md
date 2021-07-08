@@ -83,7 +83,7 @@ StartDate: Date|2016-01-01
 
 ## Tests
 
-`framework/sake dev/tests/SerialisedDBFeildsTest`
+`framework/sake dev/tests/SerialisedDBFieldsTest`
 
 ## Troubleshooting
 
