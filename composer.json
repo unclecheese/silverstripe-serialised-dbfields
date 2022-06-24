@@ -1,7 +1,7 @@
 {
   "name": "unclecheese/silverstripe-serialised-dbfields",
   "description": "Provides serialised data (YAML, JSON) in text fields that are traverseable as nested ViewableData objects.",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "homepage": "https://github.com/unclecheese/silverstripe-serialised-dbfields",
   "keywords": [
     "silverstripe",
