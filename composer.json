@@ -1,22 +1,25 @@
 {
-	"name": "unclecheese/silverstripe-serialised-dbfields",
-	"description": "Provides serialised data (YAML, JSON) in text fields that are traverseable as nested ViewableData objects.",
-	"type": "silverstripe-module",
-	"homepage": "https://github.com/unclecheese/silverstripe-serialised-dbfields",
-	"keywords": ["silverstripe", "dbfield", "yaml", "json"],
-	"license": "BSD-3-Clause",
-	"authors": [
-		{"name": "Uncle Cheese","email": "unclecheese@leftandmain.com"}
-	],
-	"support": {
-		"issues": "https://github.com/unclecheese/silverstripe-serialised-dbfields/issues"
-	},
-	"require": {
-		"silverstripe/framework": "~3.1",
-		"symfony/yaml": "^3"
-	},
-    "suggest": {
-        "nathancox/codeeditorfield": "Provides a robust code editor for editing your serialised data in the CMS"
+  "name": "unclecheese/silverstripe-serialised-dbfields",
+  "description": "Provides serialised data (YAML, JSON) in text fields that are traverseable as nested ViewableData objects.",
+  "type": "silverstripe-module",
+  "homepage": "https://github.com/unclecheese/silverstripe-serialised-dbfields",
+  "keywords": [
+    "silverstripe",
+    "dbfield",
+    "yaml",
+    "json"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Uncle Cheese",
+      "email": "unclecheese@leftandmain.com"
     }
-
+  ],
+  "support": {
+    "issues": "https://github.com/unclecheese/silverstripe-serialised-dbfields/issues"
+  },
+  "require": {
+    "silverstripe/framework": "^4"
+  }
 }
