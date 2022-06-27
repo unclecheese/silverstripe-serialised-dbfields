@@ -2,7 +2,7 @@
 
 namespace UncleCheese\SerialisedDBFields;
 
-use \Convert;
+use SilverStripe\Core\Convert;
 
 /**
  * Class JSONParser

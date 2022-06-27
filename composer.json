@@ -21,5 +21,11 @@
   },
   "require": {
     "silverstripe/framework": "^4"
+  },
+  "autoload": {
+    "psr-4": {
+      "UncleCheese\\SerialisedDBFields\\": "src/",
+      "UncleCheese\\SerialisedDBFields\\Tests\\": "tests/"
+    }
   }
 }

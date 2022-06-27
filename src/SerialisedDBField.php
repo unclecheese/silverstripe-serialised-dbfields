@@ -2,11 +2,12 @@
 
 namespace UncleCheese\SerialisedDBFields;
 
-use \Text;
-use \DBField;
-use \FormField;
-use \ArrayLib;
-use \ArrayList;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\ORM\FieldType\DBText;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Forms\FormField;
+use SilverStripe\ORM\ArrayLib;
+use SilverStripe\ORM\ArrayList;
 
 /**
  * Class SerialisedDBField
@@ -28,12 +29,6 @@ abstract class SerialisedDBField extends Text
 
 
     /**
-     * @var FormField
-     */
-    protected $editorField;
-
-
-    /**
      * SerialisedDBField constructor.
      * @param null $name
      * @param null $unserialisedData
@@ -44,7 +39,6 @@ abstract class SerialisedDBField extends Text
 
         parent::__construct($name);
     }
-
 
     /**
      * @param $field
@@ -112,8 +106,7 @@ abstract class SerialisedDBField extends Text
      */
     public function scaffoldFormField($title = null, $params = null)
     {
-        return $this->editorField
-            ->setName($this->name)
+        return TextareaField::create($this->name)
             ->setTitle($title);
     }
 
@@ -127,14 +120,6 @@ abstract class SerialisedDBField extends Text
     }
 
 
-    /**
-     * @param FormField $field
-     */
-    public function setEditor(FormField $field)
-    {
-        $this->editorField = $field;
-    }
-
 
     /**
      * @return null
@@ -147,15 +132,15 @@ abstract class SerialisedDBField extends Text
 
         return $this->unserialisedData = $this->parser->parse($this->getValue());
     }
-    
-	
+
+
     /**
      * @return bool
      */
     public function scalarValueOnly()
     {
         return false;
-    }	
+    }
 
 
     /**
@@ -189,7 +174,7 @@ abstract class SerialisedDBField extends Text
     	if($pos !== false) {
 	    	$hint = trim(substr($fieldValue, 0, $pos));
 	    	$value = substr($fieldValue, $pos+1);
-	    	if(is_subclass_of($hint, 'DBField')) {	    			    		
+	    	if(is_subclass_of($hint, DBField::class)) {
 				$dbField = DBField::create_field($hint, $value);
 			}
 

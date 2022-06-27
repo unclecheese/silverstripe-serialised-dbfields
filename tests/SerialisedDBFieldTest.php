@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\SerialisedDBFields\Tests;
+
 class SerialisedDBFieldTest extends SapphireTest
 {
 
