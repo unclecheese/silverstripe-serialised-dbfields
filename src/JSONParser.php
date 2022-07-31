@@ -2,8 +2,6 @@
 
 namespace UncleCheese\SerialisedDBFields;
 
-use SilverStripe\Core\Convert;
-
 /**
  * Class JSONParser
  * @package UncleCheese\SerialisedDBFields
@@ -16,6 +14,6 @@ class JSONParser implements SerialisedDBFieldParser
      */
     public function parse($data)
     {
-        return Convert::json2array($data);
+        return json_decode($data, true);
     }
 }

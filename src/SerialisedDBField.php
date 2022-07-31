@@ -13,7 +13,7 @@ use SilverStripe\ORM\ArrayList;
  * Class SerialisedDBField
  * @package UncleCheese\SerialisedDBFields
  */
-abstract class SerialisedDBField extends Text
+abstract class SerialisedDBField extends DBText
 {
 
     /**
