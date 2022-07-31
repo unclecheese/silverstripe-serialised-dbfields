@@ -5,8 +5,8 @@ Injector:
   JSONField:
     class: UncleCheese\SerialisedDBFields\JSONField
     properties:
-      parser: %$UncleCheese\SerialisedDBFields\JSONParser
+      parser: '%$UncleCheese\SerialisedDBFields\JSONParser'
   YAMLField:
     class: UncleCheese\SerialisedDBFields\YAMLField
     properties:
-      parser: %$UncleCheese\SerialisedDBFields\YAMLParser
+      parser: '%$UncleCheese\SerialisedDBFields\YAMLParser'
