@@ -1,7 +1,7 @@
 ---
 Name: serialised-db-fields
 ---
-Injector:
+SilverStripe\Core\Injector\Injector:
   JSONField:
     class: UncleCheese\SerialisedDBFields\JSONField
     properties:
