@@ -20,7 +20,7 @@
     "issues": "https://github.com/unclecheese/silverstripe-serialised-dbfields/issues"
   },
   "require": {
-    "silverstripe/framework": "^4"
+    "silverstripe/framework": "^6"
   },
   "autoload": {
     "psr-4": {

@@ -44,11 +44,11 @@ abstract class SerialisedDBField extends DBText
      * @param $field
      * @return bool
      */
-    public function hasField($field)
+    public function hasField(string $fieldName): bool
     {
         $data = $this->getUnserialisedData();
 
-        return isset($data[$field]);
+        return isset($data[$fieldName]);
     }
 
 
@@ -56,9 +56,9 @@ abstract class SerialisedDBField extends DBText
      * @param $field
      * @return mixed
      */
-    public function getField($field)
+    public function getField(string $fieldName): mixed
     {
-        return $this->obj($field);
+        return $this->obj($fieldName);
     }
 
 
@@ -70,7 +70,7 @@ abstract class SerialisedDBField extends DBText
      * @param null $cacheName
      * @return null
      */
-    public function obj($fieldName, $arguments = null, $forceReturnedObject = true, $cache = false, $cacheName = null)
+    public function obj(string $fieldName, array $arguments = [], bool $cache = false): ?object
     {
         $data = $this->getFieldFromData($fieldName);
 
@@ -95,7 +95,7 @@ abstract class SerialisedDBField extends DBText
 
         $this->$fieldName = $this->getCastingHint($data);
 
-        return parent::obj($fieldName, $arguments, $forceReturnedObject, $cache, $cacheName);
+        return parent::obj($fieldName, $arguments, $cache);
     }
 
 
@@ -104,7 +104,7 @@ abstract class SerialisedDBField extends DBText
      * @param null $params
      * @return FormField
      */
-    public function scaffoldFormField($title = null, $params = null)
+    public function scaffoldFormField(?string $title = null, array $params = []): ?FormField
     {
         return TextareaField::create($this->name)
             ->setTitle($title);
@@ -137,7 +137,7 @@ abstract class SerialisedDBField extends DBText
     /**
      * @return bool
      */
-    public function scalarValueOnly()
+    public function scalarValueOnly(): bool
     {
         return false;
     }
