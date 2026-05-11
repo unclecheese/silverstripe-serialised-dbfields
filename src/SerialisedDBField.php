@@ -62,14 +62,6 @@ abstract class SerialisedDBField extends DBText
     }
 
 
-    /**
-     * @param $fieldName
-     * @param null $arguments
-     * @param bool $forceReturnedObject
-     * @param bool $cache
-     * @param null $cacheName
-     * @return null
-     */
     public function obj(string $fieldName, array $arguments = [], bool $cache = false): ?object
     {
         $data = $this->getFieldFromData($fieldName);
@@ -93,9 +85,11 @@ abstract class SerialisedDBField extends DBText
             return $newField;
         }
 
-        $this->$fieldName = $this->getCastingHint($data);
+        $cast = $this->getCastingHint($data);
 
-        return parent::obj($fieldName, $arguments, $cache);
+        return $cast instanceof DBField
+            ? $cast
+            : DBField::create_field('Text', $cast, $fieldName);
     }
 
 
